@@ -45,7 +45,7 @@ fun lastworld : set World {
 
 -- does the Kripke structure contains a lasso, a loop?
 pred hasLasso {
-    one w:World | w in w.^nextw
+    some w:World | w in w.^nextw
 }
 
 fact allWorldsAreConnectedToTheInitialWorld {
@@ -69,6 +69,7 @@ pred show {
       #reachable>=3
       one Initial
       one Goal
+      hasLasso
 }
 
 run show for 4 State, 4 World
